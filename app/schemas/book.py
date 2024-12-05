@@ -8,6 +8,14 @@ class BookSchema(BaseSchema):
     published_date = fields.Str(validate=validate.Length(max=20))
     author = fields.Nested('AuthorSchema', dump_only=True)
 
+    @post_load
+    def make_book(self, data, **kwargs):
+        return Book(**data)
+
 class AuthorSchema(BaseSchema):
     name = fields.Str(required=True, validate=validate.Length(min=1, max=100))
     books = fields.List(fields.Nested(BookSchema), dump_only=True)
+
+    @post_load
+    def make_author(self, data, **kwargs):
+        return Author(**data)

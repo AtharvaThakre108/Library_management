@@ -8,6 +8,7 @@ class BorrowRecord(BaseModel):
 
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
     book_id = Column(Integer, ForeignKey('books.id'), nullable=False)
+    status = Column(String(50), nullable=False, default="pending")  # Options: pending, approved, denied
     borrow_date = Column(DateTime, nullable=False)
     return_date = Column(DateTime)
 
