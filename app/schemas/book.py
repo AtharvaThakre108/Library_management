@@ -1,5 +1,6 @@
 from marshmallow import fields, validate
 from app.schemas.base import BaseSchema
+from ..models import Book , Author
 
 class BookSchema(BaseSchema):
     title = fields.Str(required=True, validate=validate.Length(min=1, max=255))

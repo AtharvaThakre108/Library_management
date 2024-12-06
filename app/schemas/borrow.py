@@ -1,5 +1,6 @@
 from marshmallow import fields, validate
 from app.schemas.base import BaseSchema
+from ..models import BorrowRecord , BorrowHistory
 
 class BorrowRecordSchema(BaseSchema):
     user_id = fields.Int(required=True)

@@ -1,5 +1,6 @@
 from marshmallow import fields, validate
 from app.schemas.base import BaseSchema
+from ..models import User , UserProfile
 
 class UserSchema(BaseSchema):
     username = fields.Str(required=True, validate=validate.Length(min=3, max=50))
